@@ -20,6 +20,8 @@ class Game {
     start(){
         if (!this.drawIntervalId) {
            this.drawIntervalId = setInterval(() => {
+            this.clear();
+            this.move();
             this.draw();
             }, this.fps);
         }
@@ -30,8 +32,16 @@ class Game {
         this.drawIntervalId = undefined;
     }
 
+    move() {
+        this.rabbit.move();
+    }
+
     draw() {
-        this.rabbit.draw()
+        this.rabbit.draw();
+    }
+
+    clear() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
