@@ -10,7 +10,7 @@ class Game {
         this.fps = FPS;
         this.drawIntervalId = undefined;
 
-        this.rabbit = new Rabbit(this.ctx, 100, 100);
+        this.rabbit = new Rabbit(this.ctx, 150, 350);
     }
 
     onKeyEvent(event) {
