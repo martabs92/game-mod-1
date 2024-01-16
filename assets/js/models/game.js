@@ -35,6 +35,7 @@ class Game {
 
     move() {
         this.rabbit.move();
+        this.background.move();
     }
 
     draw() {
