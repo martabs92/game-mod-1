@@ -1,6 +1,6 @@
 
-const CANVAS_H = 600;
-const CANVAS_W = 800;
+const CANVAS_H = 700;
+const CANVAS_W = 1000;
 
 const FPS = 1000 / 60;
 
