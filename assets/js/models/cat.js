@@ -9,8 +9,8 @@ class Cat {
         this.y = y;
         this.y0 = this.y;
         this.vy = 0;
-        this.w = Math.ceil(150);
-        this.h = Math.ceil(120);
+        this.w = Math.ceil(170);
+        this.h = Math.ceil(130);
 
         this.sprite = new Image();
         this.sprite.src = '/assets/img/cat.png';
@@ -26,12 +26,14 @@ class Cat {
 
         }
 
-
+        
         this.movements = {
             right: false,
             left: false,
             isJumping: false,
         }
+
+        this.animationTick = 0;
     }
 
     onKeyEvent(event) {
@@ -88,10 +90,26 @@ draw() {
             this.w,
             this.h,
         )
+
+        this.animate();
+
     }
 }
 
+animate() {
+    this.animationTick++;
+    
+    if (this.movements.isJumping) {
+        this.sprite.horizontalFrameIndex = 1;
+    } else if (this.animationTick >= 20) {
+        this.animationTick = 0;
+        this.sprite.horizontalFrameIndex++;
 
+        if (this.sprite.horizontalFrameIndex > this.sprite.horizontalFrames -1) {
+        this.sprite.horizontalFrameIndex = 0;
+        }
+    }
+}
 
 
 }
