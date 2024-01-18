@@ -19,6 +19,10 @@ class Background {
 
 move () {
     this.x -= this.vx;
+
+    if (this.x < -this.w) {
+        this.x = 0;
+    }
 }
 
 draw() {

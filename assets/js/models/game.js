@@ -11,11 +11,11 @@ class Game {
         this.drawIntervalId = undefined;
 
         this.background = new Background(this.ctx);
-        this.rabbit = new Rabbit(this.ctx, 90, 475);
+        this.cat = new Cat(this.ctx, 90, 475);
     }
 
     onKeyEvent(event) {
-        this.rabbit.onKeyEvent(event);
+        this.cat.onKeyEvent(event);
     }
 
     start(){
@@ -34,13 +34,13 @@ class Game {
     }
 
     move() {
-        this.rabbit.move();
+        this.cat.move();
         this.background.move();
     }
 
     draw() {
         this.background.draw();
-        this.rabbit.draw();
+        this.cat.draw();
     }
 
     clear() {
