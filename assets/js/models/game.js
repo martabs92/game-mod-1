@@ -12,6 +12,7 @@ class Game {
 
         this.background = new Background(this.ctx);
         this.cat = new Cat(this.ctx, CAT_X_PADDING, this.canvas.height - CAT_GROUND_PADDING);
+        this.tweety = new Tweety(this.ctx,100,100);
     }
 
     onKeyEvent(event) {
@@ -41,6 +42,7 @@ class Game {
     draw() {
         this.background.draw();
         this.cat.draw();
+        this.tweety.draw();
     }
 
     clear() {
