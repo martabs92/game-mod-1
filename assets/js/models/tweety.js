@@ -4,9 +4,10 @@ class Tweety {
     constructor(ctx,x,y) {
         this.ctx = ctx;
         this.x = x;
+        this.vx = TWEETY_SPEED_MOVE;
         this.y = y;
-        this.w = Math.ceil(38);
-        this.h = Math.ceil(38);
+        this.w = Math.ceil(42);
+        this.h = Math.ceil(42);
 
         this.sprite = new Image();
         this.sprite.src = '/assets/img/weety.png';
@@ -23,10 +24,11 @@ class Tweety {
 
         this.animationTick = 0;
 
+        
     }
 
-move(){
-
+move() {
+    this.x -= this.vx;
 }
 
 
@@ -51,14 +53,12 @@ draw() {
 animate() {
     this.animationTick++;
     
-    if (this.movements.isJumping) {
-        this.sprite.horizontalFrameIndex = 1;
-    } else if (this.animationTick >= CAT_RUN_ANIMATION_TICK) {
+    if (this.animationTick >= TWEETY_RUN_ANIMATION_TICK) {
         this.animationTick = 0;
-        this.sprite.horizontalFrameIndex++;
 
-        if (this.sprite.horizontalFrameIndex > this.sprite.horizontalFrames -1) {
-        this.sprite.horizontalFrameIndex = 0;
+        this.sprite.horizontalFrameIndex++;
+        if (this.sprite.horizontalFrameIndex >= this.sprite.horizontalFrames -1) {
+            this.sprite.horizontalFrameIndex = 0;
         }
     }
 }

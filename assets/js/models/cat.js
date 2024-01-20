@@ -5,7 +5,7 @@ class Cat {
         this.ctx = ctx;
 
         this.x = x;
-        this.vx = SPEED_MOVE;
+        this.vx = CAT_SPEED_MOVE;
         this.y = y;
         this.y0 = this.y;
         this.vy = 0;
@@ -56,7 +56,7 @@ jump() {
         if (!this.movements.isJumping) {
             this.movements.isJumping = true;
             this.y -= Math.ceil(this.h / 2);
-            this.vy = -SPEED_JUMP;
+            this.vy = -CAT_SPEED_JUMP;
         }
 }
 
@@ -68,7 +68,7 @@ move() {
     }
 
     if (this.y < this.y0) {
-        this.vy += ACCELERATION;
+        this.vy += CAT_ACCELERATION;
         this.y += this.vy;
     } else {
         this.y = this.y0;

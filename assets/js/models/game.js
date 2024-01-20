@@ -37,6 +37,7 @@ class Game {
     move() {
         this.cat.move();
         this.background.move();
+        this.tweety.move();
     }
 
     draw() {
