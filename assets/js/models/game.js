@@ -13,6 +13,16 @@ class Game {
         this.background = new Background(this.ctx);
         this.cat = new Cat(this.ctx, CAT_X_PADDING, this.canvas.height - CAT_GROUND_PADDING);
         this.tweety = new Tweety(this.ctx, this.canvas.width - 80, this.canvas.height - TWEETY_GROUND_PADDING);
+        this.granny = new Granny(this.ctx, this.canvas.width - 20, this.canvas.height - GRANNY_GROUND_PADDING);
+        
+    
+        
+
+
+        this.platform = new Platform(this.ctx, this.canvas.width - 80, this.canvas.heigth - PLATFORM_GROUND_PADDING);
+    
+    
+    
     }
 
     onKeyEvent(event) {
@@ -38,12 +48,16 @@ class Game {
         this.cat.move();
         this.background.move();
         this.tweety.move();
+        this.granny.move();
+        this.platform.move();
     }
 
     draw() {
         this.background.draw();
         this.cat.draw();
         this.tweety.draw();
+        this.granny.draw();
+        this.platform.draw();
     }
 
     clear() {

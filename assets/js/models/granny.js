@@ -1,16 +1,15 @@
-
-class Tweety {
+class Granny {
 
     constructor(ctx,x,y) {
         this.ctx = ctx;
         this.x = x;
-        this.vx = TWEETY_SPEED_MOVE;
+        this.vx = GRANNY_SPEED_MOVE;
         this.y = y;
-        this.w = Math.ceil(42);
-        this.h = Math.ceil(42);
+        this.w = Math.ceil(150);
+        this.h = Math.ceil(170);
 
         this.sprite = new Image();
-        this.sprite.src = '/assets/img/tweety.png';
+        this.sprite.src = '/assets/img/grannysprite.png';
         this.sprite.verticalFrames = 1;
         this.sprite.verticalFrameIndex = 0;
         this.sprite.horizontalFrames = 3;
@@ -23,8 +22,6 @@ class Tweety {
         }
 
         this.animationTick = 0;
-
-        
     }
 
 move() {
@@ -53,11 +50,12 @@ draw() {
 animate() {
     this.animationTick++;
     
-    if (this.animationTick >= TWEETY_RUN_ANIMATION_TICK) {
+    if (this.animationTick >= GRANNY_RUN_ANIMATION_TICK) {
         this.animationTick = 0;
 
         this.sprite.horizontalFrameIndex++;
-        if (this.sprite.horizontalFrameIndex >= this.sprite.horizontalFrames -1) {
+
+        if (this.sprite.horizontalFrameIndex >= this.sprite.horizontalFrames) {
             this.sprite.horizontalFrameIndex = 0;
         }
     }
