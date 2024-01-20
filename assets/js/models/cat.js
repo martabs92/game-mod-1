@@ -23,7 +23,6 @@ class Cat {
             this.sprite.isReady = true;
             this.sprite.frameWidth = Math.ceil(this.sprite.width / this.sprite.horizontalFrames);
             this.sprite.frameHeight = Math.ceil(this.sprite.height / this.sprite.verticalFrames);
-
         }
 
         
@@ -101,7 +100,7 @@ animate() {
     
     if (this.movements.isJumping) {
         this.sprite.horizontalFrameIndex = 1;
-    } else if (this.animationTick >= 20) {
+    } else if (this.animationTick >= CAT_RUN_ANIMATION_TICK) {
         this.animationTick = 0;
         this.sprite.horizontalFrameIndex++;
 

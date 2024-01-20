@@ -8,6 +8,9 @@ const KEY_RIGHT = 39;
 const KEY_LEFT = 37;
 const KEY_UP = 38;
 
+const CAT_RUN_ANIMATION_TICK = 15;
+const CAT_GROUND_PADDING = 300;
+const CAT_X_PADDING = 50;
 
 const SPEED_BACKGROUND = 2;
 

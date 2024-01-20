@@ -11,7 +11,7 @@ class Game {
         this.drawIntervalId = undefined;
 
         this.background = new Background(this.ctx);
-        this.cat = new Cat(this.ctx, 50, 430);
+        this.cat = new Cat(this.ctx, CAT_X_PADDING, this.canvas.height - CAT_GROUND_PADDING);
     }
 
     onKeyEvent(event) {
