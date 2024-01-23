@@ -6,7 +6,6 @@ class Game {
         this.canvas.height = CANVAS_H;
         this.canvas.width = CANVAS_W;
         this.ctx = this.canvas.getContext('2d');
-
         this.fps = FPS;
         this.drawIntervalId = undefined;
 
@@ -41,9 +40,19 @@ class Game {
             this.clear();
             this.move();
             this.draw();
+            this.checkCollisions();
             }, this.fps);
         }
     }
+
+    checkCollisions() {
+        this.enemies.forEach((enemy) => {
+            if (enemy.collidesWith(this.cat)) {
+                this.gameOver();
+            }
+        });
+    }
+
 
     addEnemy() {
         if (this.drawIntervalId) {
@@ -92,5 +101,10 @@ class Game {
         this.enemies = this.enemies.filter((enemy) => (enemy.x + enemy.w) > 0);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+
+gameOver() {
+    this.stop();
+}
+
 }
 
