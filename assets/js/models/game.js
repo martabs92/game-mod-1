@@ -12,7 +12,14 @@ class Game {
 
         this.background = new Background(this.ctx);
         this.cat = new Cat(this.ctx, CAT_X_PADDING, this.canvas.height - CAT_GROUND_PADDING);
-        this.tweety = new Tweety(this.ctx, this.canvas.width - 80, this.canvas.height - TWEETY_GROUND_PADDING);
+        this.tweeties = [
+            new Tweety(this.ctx, this.canvas.width - 80, this.canvas.height - TWEETY_GROUND_PADDING)
+        ];
+
+        this.addTweetyBackoff = 2000;
+        setTimeout(() => this.addTweety(), this.addTweetyBackoff);
+
+
          this.enemies = [
             new Granny(this.ctx, this.canvas.width - 20, this.canvas.height - GRANNY_GROUND_PADDING)
         ];
@@ -42,10 +49,20 @@ class Game {
         if (this.drawIntervalId) {
             this.enemies.push(new Granny(this.ctx, this.canvas.width, this.canvas.height - GRANNY_GROUND_PADDING));
         }
-        
+
         this.addEnemyBackoff = Math.floor(Math.random() * 10 + 1) * 1000;
         setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
     }
+
+    addTweety() {
+        if (this.drawIntervalId) {
+            this.tweeties.push(new Tweety(this.ctx, this.canvas.width, this.canvas.height - TWEETY_GROUND_PADDING))
+        }
+
+        this.addTweetyBackoff = Math.floor(Math.random() * 10 + 1) * 1000;
+        setTimeout(() => this.addTweety(), this.addTweetyBackoff);
+    }
+
 
     stop() {
         clearInterval(this.drawIntervalId);
@@ -55,7 +72,7 @@ class Game {
     move() {
         this.cat.move();
         this.background.move();
-        this.tweety.move();
+        this.tweeties.forEach((tweety) => tweety.move());
         this.enemies.forEach((enemy) => enemy.move());
 
         this.platform.move();
@@ -64,14 +81,14 @@ class Game {
     draw() {
         this.background.draw();
         this.cat.draw();
-        this.tweety.draw();
+        this.tweeties.forEach((tweety) => tweety.draw());
         this.enemies.forEach((enemy) => enemy.draw());
 
         this.platform.draw();
     }
 
     clear() {
-        
+        this.tweeties = this.tweeties.filter((tweety) => (tweety.x + tweety.w) > 0);
         this.enemies = this.enemies.filter((enemy) => (enemy.x + enemy.w) > 0);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
