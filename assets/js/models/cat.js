@@ -91,7 +91,6 @@ draw() {
         )
 
         this.animate();
-
     }
 }
 

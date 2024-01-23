@@ -5,8 +5,8 @@ class Granny {
         this.x = x;
         this.vx = GRANNY_SPEED_MOVE;
         this.y = y;
-        this.w = Math.ceil(150);
-        this.h = Math.ceil(170);
+        this.w = Math.ceil(130);
+        this.h = Math.ceil(150);
 
         this.sprite = new Image();
         this.sprite.src = '/assets/img/grannysprite.png';

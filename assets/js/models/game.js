@@ -13,15 +13,14 @@ class Game {
         this.background = new Background(this.ctx);
         this.cat = new Cat(this.ctx, CAT_X_PADDING, this.canvas.height - CAT_GROUND_PADDING);
         this.tweety = new Tweety(this.ctx, this.canvas.width - 80, this.canvas.height - TWEETY_GROUND_PADDING);
-        this.granny = new Granny(this.ctx, this.canvas.width - 20, this.canvas.height - GRANNY_GROUND_PADDING);
+         this.enemies = [
+            new Granny(this.ctx, this.canvas.width - 20, this.canvas.height - GRANNY_GROUND_PADDING)
+        ];
         
-    
-        
-
+       this.addEnemyBackoff = 2000;
+       setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
 
         this.platform = new Platform(this.ctx, this.canvas.width - 80, this.canvas.heigth - PLATFORM_GROUND_PADDING);
-    
-    
     
     }
 
@@ -39,6 +38,15 @@ class Game {
         }
     }
 
+    addEnemy() {
+        if (this.drawIntervalId) {
+            this.enemies.push(new Granny(this.ctx, this.canvas.width, this.canvas.height - GRANNY_GROUND_PADDING));
+        }
+        
+        this.addEnemyBackoff = Math.floor(Math.random() * 10 + 1) * 1000;
+        setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
+    }
+
     stop() {
         clearInterval(this.drawIntervalId);
         this.drawIntervalId = undefined;
@@ -48,7 +56,8 @@ class Game {
         this.cat.move();
         this.background.move();
         this.tweety.move();
-        this.granny.move();
+        this.enemies.forEach((enemy) => enemy.move());
+
         this.platform.move();
     }
 
@@ -56,11 +65,14 @@ class Game {
         this.background.draw();
         this.cat.draw();
         this.tweety.draw();
-        this.granny.draw();
+        this.enemies.forEach((enemy) => enemy.draw());
+
         this.platform.draw();
     }
 
     clear() {
+        
+        this.enemies = this.enemies.filter((enemy) => (enemy.x + enemy.w) > 0);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
