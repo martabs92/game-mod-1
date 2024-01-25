@@ -74,6 +74,7 @@ move() {
         this.y = this.y0;
         this.movements.isJumping = false;
     }
+
 }
 
 draw() {

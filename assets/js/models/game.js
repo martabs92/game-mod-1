@@ -15,19 +15,23 @@ class Game {
             new Tweety(this.ctx, this.canvas.width - 80, this.canvas.height - TWEETY_GROUND_PADDING)
         ];
 
-        this.addTweetyBackoff = 2000;
-        setTimeout(() => this.addTweety(), this.addTweetyBackoff);
+            this.addTweetyBackoff = 2000;
+            setTimeout(() => this.addTweety(), this.addTweetyBackoff);
 
 
          this.enemies = [
             new Granny(this.ctx, this.canvas.width - 20, this.canvas.height - GRANNY_GROUND_PADDING)
         ];
         
-       this.addEnemyBackoff = 2000;
-       setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
+            this.addEnemyBackoff = 2000;
+            setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
 
-        this.platform = new Platform(this.ctx, this.canvas.width - 80, this.canvas.heigth - PLATFORM_GROUND_PADDING);
+
+        //this.platform = new Platform(this.ctx, this.canvas.width - 80, this.canvas.heigth - PLATFORM_GROUND_PADDING);
     
+        this.score = new Score(this.ctx, 10, 30);
+
+
     }
 
     onKeyEvent(event) {
@@ -84,7 +88,13 @@ class Game {
         this.tweeties.forEach((tweety) => tweety.move());
         this.enemies.forEach((enemy) => enemy.move());
 
-        this.platform.move();
+        if (this.cat.x < 0) {
+            this.cat.x = 0;
+        } else if (this.cat.x > this.canvas.width - this.cat.w) {
+            this.cat.x = this.canvas.width - this.cat.w;
+        }
+
+        //this.platform.move();
     }
 
     draw() {
@@ -92,19 +102,23 @@ class Game {
         this.cat.draw();
         this.tweeties.forEach((tweety) => tweety.draw());
         this.enemies.forEach((enemy) => enemy.draw());
+        this.score.draw();
+        
+       
 
-        this.platform.draw();
+        //this.platform.draw();
     }
 
     clear() {
+        
         this.tweeties = this.tweeties.filter((tweety) => (tweety.x + tweety.w) > 0);
         this.enemies = this.enemies.filter((enemy) => (enemy.x + enemy.w) > 0);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-gameOver() {
-    this.stop();
-}
+    gameOver() {
+        this.stop();
+    }
 
 }
 
