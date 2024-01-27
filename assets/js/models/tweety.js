@@ -10,7 +10,7 @@ class Tweety {
         this.h = Math.ceil(42);
 
         this.sprite = new Image();
-        this.sprite.src = '/assets/img/tweety.png';
+        this.sprite.src = '/assets/img/char-sprites/tweety-sprite.png';
         this.sprite.verticalFrames = 1;
         this.sprite.verticalFrameIndex = 0;
         this.sprite.horizontalFrames = 3;

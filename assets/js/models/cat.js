@@ -13,7 +13,7 @@ class Cat {
         this.h = Math.ceil(130);
 
         this.sprite = new Image();
-        this.sprite.src = '/assets/img/cat.png';
+        this.sprite.src = '/assets/img/char-sprites/cat-sprite.png';
         this.sprite.verticalFrames = 1;
         this.sprite.verticalFrameIndex = 0;
         this.sprite.horizontalFrames = 3;

@@ -9,7 +9,7 @@ class Granny {
         this.h = Math.ceil(150);
 
         this.sprite = new Image();
-        this.sprite.src = '/assets/img/grannysprite.png';
+        this.sprite.src = '/assets/img/char-sprites/granny-sprite.png';
         this.sprite.verticalFrames = 1;
         this.sprite.verticalFrameIndex = 0;
         this.sprite.horizontalFrames = 3;
