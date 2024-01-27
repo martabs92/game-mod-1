@@ -24,8 +24,12 @@ class Tweety {
 
         this.animationTick = 0;
 
-        
+        this.alive = true;
+
     }
+
+
+
 
 move() {
     this.x -= this.vx;

@@ -9,6 +9,8 @@ const KEY_LEFT = 37;
 const KEY_UP = 38;
 
 
+//const SPRITE_AIR = 
+
 const CAT_SPEED_MOVE = 7;
 const CAT_SPEED_JUMP = 20;
 const CAT_ACCELERATION = 0.9;
@@ -25,9 +27,6 @@ const GRANNY_RUN_ANIMATION_TICK = 20;
 const GRANNY_SPEED_MOVE = 3;
 
 const GRANNY_SPAWN_TICK = 300;
-
-//const PLATFORM_GROUND_PADDING = 260;
-//const PLATFORM_SPEED_MOVE = 8;
 
 
 const SPEED_BACKGROUND = 2;

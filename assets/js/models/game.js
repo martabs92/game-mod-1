@@ -27,7 +27,6 @@ class Game {
             setTimeout(() => this.addEnemy(), this.addEnemyBackoff);
 
 
-        //this.platform = new Platform(this.ctx, this.canvas.width - 80, this.canvas.heigth - PLATFORM_GROUND_PADDING);
     
         this.score = new Score(this.ctx, 10, 30);
 
@@ -94,7 +93,7 @@ class Game {
             this.cat.x = this.canvas.width - this.cat.w;
         }
 
-        //this.platform.move();
+       
     }
 
     draw() {
@@ -104,9 +103,7 @@ class Game {
         this.enemies.forEach((enemy) => enemy.draw());
         this.score.draw();
         
-       
-
-        //this.platform.draw();
+    
     }
 
     clear() {
