@@ -10,7 +10,7 @@ class Score {
         this.h = 50;
 
         this.sprite = new Image();
-        this.sprite.src = '/assets/img/Bigtweety.png';
+        this.sprite.src = '/assets/img/score-img/Bigtweety.png';
         this.sprite.onload = () => {
             this.sprite.isReady = true;
         }

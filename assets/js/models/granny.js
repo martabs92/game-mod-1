@@ -63,10 +63,10 @@ animate() {
 
 collidesWith(element) {
 return (
-    this.x + 15 + this.w > element.x && 
-    this.x + 15 < element.x + element.w - 15 &&
-    this.y  + this.h > element.h &&
-    this.y < element.y + element.h - 10
+    this.x + SPRITE_AIR_X + this.w - SPRITE_AIR_W > element.x && 
+    this.x + SPRITE_AIR_X < element.x + element.w - SPRITE_AIR_W &&
+    this.y  + this.h - SPRITE_AIR_H > element.y &&
+    this.y < element.y + element.h - SPRITE_AIR_H
     );
 }
 

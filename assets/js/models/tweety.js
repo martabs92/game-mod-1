@@ -23,11 +23,10 @@ class Tweety {
         }
 
         this.animationTick = 0;
-
         this.alive = true;
+        this.lives = 1;
 
     }
-
 
 
 
@@ -66,6 +65,24 @@ animate() {
         }
     }
 }
+
+collidesWith(element) {
+    return (
+        this.x + SPRITE_AIR_X + this.w - SPRITE_AIR_W > element.x && 
+        this.x + SPRITE_AIR_X < element.x + element.w - SPRITE_AIR_W &&
+        this.y  + this.h - SPRITE_AIR_H > element.y &&
+        this.y < element.y + element.h - SPRITE_AIR_H
+        );
+    }
+
+
+
+isDead() {
+    if (this.alive = false) {
+        return this.score.inc() && this.lives <= 0;
+    }
+}
+
 
 
 }

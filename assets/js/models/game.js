@@ -30,7 +30,7 @@ class Game {
     
         this.score = new Score(this.ctx, 10, 30);
 
-
+    
     }
 
     onKeyEvent(event) {
@@ -52,10 +52,19 @@ class Game {
         this.enemies.forEach((enemy) => {
             if (enemy.collidesWith(this.cat)) {
                 this.gameOver();
+                
             }
         });
+
+        this.tweeties.forEach((tweety) => {
+            if (tweety.collidesWith(this.cat)) {
+                this.score.inc();
+            }
+        })
+
     }
 
+   
 
     addEnemy() {
         if (this.drawIntervalId) {
@@ -108,13 +117,14 @@ class Game {
 
     clear() {
         
-        this.tweeties = this.tweeties.filter((tweety) => (tweety.x + tweety.w) > 0);
+        this.tweeties = this.tweeties.filter((tweety) => (tweety.x + tweety.w) > 0 && !tweety.isDead());
         this.enemies = this.enemies.filter((enemy) => (enemy.x + enemy.w) > 0);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     gameOver() {
         this.stop();
+        
     }
 
 }
