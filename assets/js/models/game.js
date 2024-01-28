@@ -46,13 +46,13 @@ class Game {
             this.checkCollisions();
             }, this.fps);
         }
+        
     }
 
     checkCollisions() {
         this.enemies.forEach((enemy) => {
             if (enemy.collidesWith(this.cat)) {
-                this.gameOver();
-                
+                this.gameOver(); 
             }
         });
 
@@ -124,6 +124,28 @@ class Game {
 
     gameOver() {
         this.stop();
+        this.ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    this.ctx.fillTextStyle = "black";
+    this.ctx.font = "40px RubikBurned";
+    this.ctx.fillText = "FINISH!";
+    this.ctx.strokeText(`OH NO! GAME OVER`,this.canvas.width/3, this.canvas.height/2);
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    const endPanel = document.getElementById('end-panel');
+        endPanel.classList.remove('hidden');
+
+    const endGameBtn = document.getElementById('btn-end-game');
+    endGameBtn.addEventListener('click', () => {
+
+        const endPanel = document.getElementById('end-panel');
+        endPanel.classList.remove('hidden');
+
+        const canvasPanel = document.getElementById('main-canvas');
+        canvasPanel.classList.remove('hidden');
+
+        document.location.reload();
+        
+    });
         
     }
 
