@@ -74,7 +74,6 @@ move() {
         this.y = this.y0;
         this.movements.isJumping = false;
     }
-
 }
 
 draw() {
@@ -90,7 +89,6 @@ draw() {
             this.w,
             this.h,
         )
-
         this.animate();
     }
 }
@@ -109,6 +107,5 @@ animate() {
         }
     }
 }
-
 
 }

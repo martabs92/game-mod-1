@@ -21,19 +21,14 @@ class Tweety {
             this.sprite.frameWidth = Math.ceil(this.sprite.width / this.sprite.horizontalFrames);
             this.sprite.frameHeight = Math.ceil(this.sprite.height / this.sprite.verticalFrames);
         }
-
         this.animationTick = 0;
         this.alive = true;
         this.lives = 1;
-
     }
-
-
 
 move() {
     this.x -= this.vx;
 }
-
 
 draw() {
     if (this.sprite.isReady) {
@@ -48,7 +43,6 @@ draw() {
             this.w,
             this.h,
         )
-
         this.animate();
     }
 }
@@ -75,14 +69,10 @@ collidesWith(element) {
         );
     }
 
-
-
 isDead() {
     if (this.alive = false) {
         return this.score.inc() && this.lives <= 0;
     }
 }
-
-
 
 }

@@ -20,7 +20,6 @@ class Granny {
             this.sprite.frameWidth = Math.ceil(this.sprite.width / this.sprite.horizontalFrames);
             this.sprite.frameHeight = Math.ceil(this.sprite.height / this.sprite.verticalFrames);
         }
-
         this.animationTick = 0;
     }
 
@@ -42,7 +41,6 @@ draw() {
             this.w,
             this.h,
         )
-
         this.animate();
     }
 }
@@ -68,6 +66,6 @@ return (
     this.y  + this.h - SPRITE_AIR_H > element.y &&
     this.y < element.y + element.h - SPRITE_AIR_H
     );
-}
+    }
 
 }
